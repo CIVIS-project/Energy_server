@@ -17,6 +17,7 @@ This code requires Windows OS and has been developed with:
 * Visual Studio 2013 (RESTful APIs)
 and deployed on Microsoft Windows Server 2012 R2 with: 
 * Microsoft SQL server 2012 (database)
+* Microsoft IIS 8
 
 ### Installing
 The code is structured in the following folder:

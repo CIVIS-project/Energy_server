@@ -1,0 +1,42 @@
+﻿<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+    xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
+    xmlns:s_pro="http://www.testdomain.com/Prosumer_model.owl#"
+    xmlns:b="http://www.testdomain.com/OntologyBase.owl#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+    xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xml:base="http://www.testdomain.com/Prosumer_model.owl">
+  <owl:Ontology rdf:about="">
+    <owl:imports rdf:resource="http://www.testdomain.com/OntologyBase.owl"/>
+  </owl:Ontology>
+  <owl:Class rdf:ID="Prosumer">
+    <rdfs:subClassOf rdf:resource="http://www.testdomain.com/OntologyBase.owl#Sensor"/>
+  </owl:Class>
+  <owl:FunctionalProperty rdf:ID="ApartmentID">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdfs:domain rdf:resource="#Prosumer"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="hasSituation">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Prosumer"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="Production">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:domain rdf:resource="#Prosumer"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="Consumption">
+    <rdfs:domain rdf:resource="#Prosumer"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 3.4.2, Build 562)  http://protege.stanford.edu -->

@@ -1,0 +1,85 @@
+@prefix s_area: <http://www.testdomain.com/ProdConsMonitoringService_model.owl#>.
+@prefix s_pro: <http://www.testdomain.com/Prosumer_model.owl#>.
+
+[rule_reportsuggestion: 
+	(?p b:MarkerProperty1 ?service)
+	(?service rdf:type s_area:ProdConsMonitoringService) 
+    (?p rdf:type s_pro:Prosumer) 
+	(?service b:RecognizesContext s_area:OpportunityDetected)
+
+
+	 (s_area:OpportunityDetected b:Description  ?description)
+     strConcat ( ?description,  ?justification) 				  
+	(?action_request rdf:type b:ActionRequest) 
+		   
+	 strConcat('LOAD-SHIFT', ?type)       
+	 now(?time)
+	 strConcat (?p,  , '_', ?time,  '_', ?type  ?alarmId) 
+				
+		
+	strConcat(?p, ?relatedTo)
+	strConcat('M', ?priority)
+	strConcat('',?p, ?handling)
+
+	noValue(?p 	 s_pro:hasSituation  )
+
+    strConcat(?alarmId, '::',   'SHORT-TERM-TIP' , '::',  ?type, '::',?justification, '::', ?priority, '::' , 'START_EVENT', '::' , ?relatedTo,  ?actionSummary)  
+	 -> 	
+		remove(0)	
+		(?p b:MarkerProperty2 ?service)
+	 	(?p s_pro:hasSituation ?alarmId)
+	
+		(?action_request b:ActionSummary  ?actionSummary)
+		print(Actuation_START ?actionSummary ) 
+] 
+	
+
+[rule_ongoingsituation: 
+	(?p b:MarkerProperty1 ?service)
+	(?service rdf:type s_area:ProdConsMonitoringService) 
+    (?p rdf:type s_pro:Prosumer) 
+	(?service b:RecognizesContext s_area:OpportunityDetected)
+
+
+	 (s_area:OpportunityDetected b:Description  ?description)
+     strConcat ( ?description,  ?justification) 				  
+	(?action_request rdf:type b:ActionRequest) 
+		          
+	 now(?time)
+
+					
+	strConcat(?p, ?relatedTo)
+	strConcat('M', ?priority)
+	strConcat('',?p, ?handling)
+
+	(?p  s_pro:hasSituation ?event )
+
+    strConcat(?event, '::',   'SHORT-TERM-TIP' , '::',  'LOAD-SHIFT', '::',?justification, '::', ?priority, '::' , 'ONGOING_EVENT', '::' , ?relatedTo,  ?actionSummary)  
+	 -> 	
+		remove(0)	
+		(?p b:MarkerProperty2 ?service)
+	 	(?p s_pro:hasSituation ?event)
+	
+		(?action_request b:ActionSummary  ?actionSummary)
+		print(Actuation_ongoingsituation ?actionSummary ) 
+] 	
+
+
+
+[rule_endsituation: 
+	(?p  s_pro:hasSituation ?event )
+	(?service rdf:type s_area:ProdConsMonitoringService) 
+    (?p rdf:type s_pro:Prosumer) 
+
+	noValue(?p b:MarkerProperty1 )
+	noValue(?p b:MarkerProperty2 )
+
+		(?action_request rdf:type b:ActionRequest) 
+    strConcat(?event, '::',   'SHORT-TERM-TIP' , '::',  'LOAD-SHIFT', '::','', '::', '' , '::' , 'END_EVENT', '::' , ?p,  ?actionSummary)  
+	 -> 		
+	 remove(0)
+	(?p b:MarkerProperty2 ?service)
+	
+		(?action_request b:ActionSummary  ?actionSummary)
+		print(Actuation_endsituation ?actionSummary ) 
+] 	

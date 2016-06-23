@@ -1,0 +1,59 @@
+﻿<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+    xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
+    xmlns:s_weath="http://www.testdomain.com/WeatherForecast_model.owl#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+    xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xml:base="http://www.testdomain.com/WeatherForecast_model.owl">
+  <owl:Ontology rdf:about="">
+    <owl:imports rdf:resource="http://www.testdomain.com/OntologyBase.owl"/>
+  </owl:Ontology>
+  <rdfs:Class rdf:about="http://www.testdomain.com/UserEntity_model.owl#DynamicProfile"/>
+  <owl:Class rdf:ID="WeatherForecast">
+    <rdfs:subClassOf rdf:resource="http://www.testdomain.com/OntologyBase.owl#VirtualEntity"/>
+  </owl:Class>
+  <owl:DatatypeProperty rdf:ID="DatatypeProperty_16"/>
+  <owl:FunctionalProperty rdf:ID="Country">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#WeatherForecast"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="ForecastRefTime08">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:domain rdf:resource="#WeatherForecast"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="Clouds01">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdfs:domain rdf:resource="#WeatherForecast"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="City">
+    <rdfs:domain rdf:resource="#WeatherForecast"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="PubDate">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    <rdfs:domain rdf:resource="#WeatherForecast"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="Clouds08">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#WeatherForecast"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="ForecastRefTime01">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="#WeatherForecast"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+  </owl:FunctionalProperty>
+</rdf:RDF>
+ 
+<!-- Created with Protege (with OWL Plugin 3.5, Build 663)  http://protege.stanford.edu -->
+

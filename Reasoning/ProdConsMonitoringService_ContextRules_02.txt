@@ -1,0 +1,54 @@
+@prefix s_area: <http://www.testdomain.com/ProdConsMonitoringService_model.owl#>.
+@prefix s_pro: <http://www.testdomain.com/Prosumer_model.owl#>.
+@prefix s_weath: <http://www.testdomain.com/WeatherForecast_model.owl#>.
+
+
+
+[
+	(?service rdf:type s_area:ProdConsMonitoringService) 
+    (?p rdf:type s_pro:Prosumer) 
+	(?p s_pro:Production ?prod)
+	(?p s_pro:Consumption ?cons)
+
+	
+	product(1.2 ?prod ?thresholdCons)
+
+	greaterThan( ?cons ?thresholdCons) 	
+	greaterThan( ?prod  50) 	
+
+	(?p b:LogicalLocation ?location)	
+	(?location b:Name ?city)
+				  	
+	(?w rdf:type s_weath:WeatherForecast) 
+	(?w s_weath:City ?city)
+						 
+	(?w s_weath:Clouds01 ?c1) 
+	(?w s_weath:Clouds08 ?c8) 	
+	difference(?c1, ?c8, ?betterTomorrow)	
+	greaterThan(?betterTomorrow 20) 	
+	now(?t)	
+
+    -> 
+	(?service b:RecognizesContext s_area:OpportunityDetected)
+	(?p b:MarkerProperty1 ?service)
+	
+	print (** shiftOpportunityContext  ?city prod ?p cons ?cons ?t)
+] 
+			
+
+
+	
+[debug:
+	(?service rdf:type s_area:ProdConsMonitoringService) 
+	(?w rdf:type s_weath:WeatherForecast) 
+	(?w s_weath:City ?city) 
+	(?w s_weath:Clouds01 ?c1) 
+	(?w s_weath:Clouds08 ?c8) 	
+	difference(?c1, ?c8, ?betterTomorrow)	
+	greaterThan(20 ?betterTomorrow ) 	
+    -> 
+	(?service b:RecognizesContext s_area:NoAlert)
+] 
+				
+				
+
