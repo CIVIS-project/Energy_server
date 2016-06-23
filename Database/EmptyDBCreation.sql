@@ -1,0 +1,118 @@
+/* Copyright 2016 - * by Concept Reply */
+/* Authors: P. Dal Zovo, F. Cuscito */
+/*Software developed within the scopes of the "CIVIS" EU Project http://www.civisproject.eu/ ( FP7-SMARTCITIES-2013 collaborative project, with cofunding of EU, Grant agreement no: 608774) */
+
+/* to create the empty DB. Change your FILENAME and desired initial DB size to those suitable for you*/
+
+USE [master]
+GO
+
+/****** Object:  Database [Civis_Energy]    Script Date: 6/23/2016 12:20:23 PM ******/
+CREATE DATABASE [Civis_Energy]
+ CONTAINMENT = NONE
+ ON  PRIMARY --set your path and initial DB size
+( NAME = N'CivisEnergyUpdated', FILENAME = N'c:\Program Files (x86)\Microsoft SQL Server\MSSQL11.SQLEXPRESS\MSSQL\DATA\CivisEnergyUpdated.mdf' , SIZE = 1693696KB , MAXSIZE = UNLIMITED, FILEGROWTH = 1024KB )
+ LOG ON 
+( NAME = N'CivisEnergyUpdated_log', FILENAME = N'c:\Program Files (x86)\Microsoft SQL Server\MSSQL11.SQLEXPRESS\MSSQL\DATA\CivisEnergyUpdated_log.ldf' , SIZE = 1964480KB , MAXSIZE = 2048GB , FILEGROWTH = 10%)
+GO
+
+ALTER DATABASE [Civis_Energy] SET COMPATIBILITY_LEVEL = 110
+GO
+
+IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
+begin
+EXEC [Civis_Energy].[dbo].[sp_fulltext_database] @action = 'enable'
+end
+GO
+
+ALTER DATABASE [Civis_Energy] SET ANSI_NULL_DEFAULT OFF 
+GO
+
+ALTER DATABASE [Civis_Energy] SET ANSI_NULLS OFF 
+GO
+
+ALTER DATABASE [Civis_Energy] SET ANSI_PADDING OFF 
+GO
+
+ALTER DATABASE [Civis_Energy] SET ANSI_WARNINGS OFF 
+GO
+
+ALTER DATABASE [Civis_Energy] SET ARITHABORT OFF 
+GO
+
+ALTER DATABASE [Civis_Energy] SET AUTO_CLOSE OFF 
+GO
+
+ALTER DATABASE [Civis_Energy] SET AUTO_CREATE_STATISTICS ON 
+GO
+
+ALTER DATABASE [Civis_Energy] SET AUTO_SHRINK OFF 
+GO
+
+ALTER DATABASE [Civis_Energy] SET AUTO_UPDATE_STATISTICS ON 
+GO
+
+ALTER DATABASE [Civis_Energy] SET CURSOR_CLOSE_ON_COMMIT OFF 
+GO
+
+ALTER DATABASE [Civis_Energy] SET CURSOR_DEFAULT  GLOBAL 
+GO
+
+ALTER DATABASE [Civis_Energy] SET CONCAT_NULL_YIELDS_NULL OFF 
+GO
+
+ALTER DATABASE [Civis_Energy] SET NUMERIC_ROUNDABORT OFF 
+GO
+
+ALTER DATABASE [Civis_Energy] SET QUOTED_IDENTIFIER OFF 
+GO
+
+ALTER DATABASE [Civis_Energy] SET RECURSIVE_TRIGGERS OFF 
+GO
+
+ALTER DATABASE [Civis_Energy] SET  DISABLE_BROKER 
+GO
+
+ALTER DATABASE [Civis_Energy] SET AUTO_UPDATE_STATISTICS_ASYNC OFF 
+GO
+
+ALTER DATABASE [Civis_Energy] SET DATE_CORRELATION_OPTIMIZATION OFF 
+GO
+
+ALTER DATABASE [Civis_Energy] SET TRUSTWORTHY OFF 
+GO
+
+ALTER DATABASE [Civis_Energy] SET ALLOW_SNAPSHOT_ISOLATION OFF 
+GO
+
+ALTER DATABASE [Civis_Energy] SET PARAMETERIZATION SIMPLE 
+GO
+
+ALTER DATABASE [Civis_Energy] SET READ_COMMITTED_SNAPSHOT OFF 
+GO
+
+ALTER DATABASE [Civis_Energy] SET HONOR_BROKER_PRIORITY OFF 
+GO
+
+ALTER DATABASE [Civis_Energy] SET RECOVERY SIMPLE 
+GO
+
+ALTER DATABASE [Civis_Energy] SET  MULTI_USER 
+GO
+
+ALTER DATABASE [Civis_Energy] SET PAGE_VERIFY CHECKSUM  
+GO
+
+ALTER DATABASE [Civis_Energy] SET DB_CHAINING OFF 
+GO
+
+ALTER DATABASE [Civis_Energy] SET FILESTREAM( NON_TRANSACTED_ACCESS = OFF ) 
+GO
+
+ALTER DATABASE [Civis_Energy] SET TARGET_RECOVERY_TIME = 0 SECONDS 
+GO
+
+ALTER DATABASE [Civis_Energy] SET  READ_WRITE 
+GO
+
+
