@@ -14,10 +14,9 @@ These instructions will provide information useful for development and testing p
 ### Prerequisities
 
 This code requires Windows OS and has been developed with:  
-Visual Studio 2013 (RESTful APIs)
+* Visual Studio 2013 (RESTful APIs)
 and deployed on Microsoft Windows Server 2012 R2 with: 
-Microsoft IIS 8
-Microsoft SQL server 2012 (database)
+* Microsoft SQL server 2012 (database)
 
 ### Installing
 The code is structured in the following folder:
