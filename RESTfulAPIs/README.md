@@ -1,5 +1,7 @@
 # CIVIS Energy ICT server code
-
+This repository include, for both Trentino and Sweden, services and classes implementing:
+* IDataParser interface, providing REST services for POSTing sensor data
+* IInterfaceWP3 interface, providing services to Civis Social ICT platform
 
 ## Getting Started
 
